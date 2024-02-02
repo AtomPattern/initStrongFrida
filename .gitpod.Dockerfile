@@ -53,6 +53,5 @@ RUN git clone --recurse-submodules https://github.com/frida/frida \
     && git checkout $FRIDA_VERSION \
     && make core-android-arm64 && file build/frida-android-arm64/bin/frida-server \
     && make core-linux-x86_64 && file build/frida-linux-x86_64/bin/frida-server \
-    && cd .. && rm -rf frida
 
 CMD [ "bash" ]
