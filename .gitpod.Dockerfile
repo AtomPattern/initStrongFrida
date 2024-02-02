@@ -47,7 +47,6 @@ RUN git config --global push.default simple \
 ENV FRIDA_VERSION 16.1.3
 RUN git clone --recurse-submodules https://github.com/frida/frida \
     && cd frida \
-    # && sed -i 's/ --strip//g' config.mk \
     && git checkout $FRIDA_VERSION \
     && make core-android-arm64 && file build/frida-android-arm64/bin/frida-server \
     && make core-linux-x86_64 && file build/frida-linux-x86_64/bin/frida-server \
