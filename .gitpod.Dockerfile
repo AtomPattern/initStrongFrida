@@ -45,10 +45,10 @@ RUN git config --global push.default simple \
     && git config --global user.email fei_cong@hotmail.com
 
 ENV FRIDA_VERSION 16.1.3
-RUN git clone --recurse-submodules https://github.com/frida/frida \
-    && cd frida \
-	&& git stash -u \
+RUN git stash -u \
     && git clean -xdf \
+    && git clone --recurse-submodules https://github.com/frida/frida \
+    && cd frida \
     && git checkout $FRIDA_VERSION \
     && make core-android-arm64 && file build/frida-android-arm64/bin/frida-server \
     && make core-linux-x86_64 && file build/frida-linux-x86_64/bin/frida-server \
